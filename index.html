@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tictactoe</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1 class="logo">tictactoe</h1>
+
+            <nav>
+                <ul>
+                    <li class="howto menu-item">How to Play</li>
+                    <p class="dropdown hide">The goal of the game is to get 3 in a row. <br> If the board is filled and there is no winner it is a "cats" game.</p>
+                    <li class="themes menu-item">Themes</li>
+                    <ul class="dropdown hide">
+                        <li>Dark</li>
+                        <li>'Murica</li>
+                        <li>neon</li>
+                    </ul>
+                    <li class="about menu-item"><a href="./about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="gameboard">
+            <div class="box" id="box1"></div>
+            <div class="box" id="box2"></div>
+            <div class="box" id="box3"></div>
+            <div class="box" id="box4"></div>
+            <div class="box" id="box5"></div>
+            <div class="box" id="box6"></div>
+            <div class="box" id="box7"></div>
+            <div class="box" id="box8"></div>
+            <div class="box" id="box9"></div>
+        </div>
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="./tictactoe.js"></script>
+
+<script src="main.js"></script>
+
+</html>

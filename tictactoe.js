@@ -73,24 +73,38 @@ function tictactoe() {
   //get user input
 }
 
-function updateBoard(currentPlayer, event) {
-  $(event.currentTarget).innerHTML = currentPlayer;
+function updateBoard(event) {
+    if (currentPlayer === "X") {
+        const x = document.createElement("span");
+        x.innerHTML = "X";
+        x.classList.add("player-symbol");
+    
+        event.currentTarget.append(x);
+        currentPlayer = "Y";
+      } else {
+        const y = document.createElement("span");
+        y.innerHTML = "Y";
+        y.classList.add("player-symbol");
+        event.currentTarget.append(y);
+        currentPlayer = "X";
+      }
 }
 
 let currentPlayer = "Y";
 $(".box").on("click", (event) => {
-  if (currentPlayer === "X") {
-    const x = document.createElement("span");
-    x.innerHTML = "X";
-    x.classList.add("player-symbol");
+    updateBoard(event);
+//   if (currentPlayer === "X") {
+//     const x = document.createElement("span");
+//     x.innerHTML = "X";
+//     x.classList.add("player-symbol");
 
-    event.currentTarget.append(x);
-    currentPlayer = "Y";
-  } else {
-    const y = document.createElement("span");
-    y.innerHTML = "Y";
-    y.classList.add("player-symbol");
-    event.currentTarget.append(y);
-    currentPlayer = "X";
-  }
+//     event.currentTarget.append(x);
+//     currentPlayer = "Y";
+//   } else {
+//     const y = document.createElement("span");
+//     y.innerHTML = "Y";
+//     y.classList.add("player-symbol");
+//     event.currentTarget.append(y);
+//     currentPlayer = "X";
+//   }
 });

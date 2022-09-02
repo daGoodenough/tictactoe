@@ -6,6 +6,21 @@
 body{
     background-color: greenyellow;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a.menu-item:hover {
+    color: grey;
+    border-bottom: 2px solid grey;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) repeat(3, 60px) repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) repeat(3, 60px) repeat(2, 1fr);
+}
 header {
     grid-column: 1 / span 7;
     display: flex;
@@ -31,13 +46,37 @@ nav ul {
 
 nav ul li {
     list-style-type: none;
-    padding: 5px;
+    padding: 2px;
     margin: 8px;
 }
 .logo {
     margin: 8px;
 }
 
+.menu-item {
+    border-bottom: 1px solid transparent;
+    margin:
+}
+
+.menu-item:hover {
+    border-bottom: 2px solid black;
+
+}
+
+.menu-item-container{
+    position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  
+}
+
+p.dropdown {
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+}
 .gameboard {
     grid-area: 3 / 3 / span 3 / span 3;
     display: grid;
@@ -67,12 +106,14 @@ nav ul li {
 
 
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
 
 
+.player-symbol {
+    font-size: 2rem;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    text-justify: center;
 }
 
 .hide {

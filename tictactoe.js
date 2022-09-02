@@ -1,24 +1,88 @@
-//accepts an event and add an X or an O 
-//depending on who's turn it is
+//declare variable that represent the spaces, 
+//the board and winning positions
+let $box1;
+let $box2;
+let $box3;
+let $box4;
+let $box5;
+let $box6;
+let $box7;
+let $box8;
+let $box9;
+let boardArray = [];
+let winners = []
 
+//function to reset variables to new values
+//every time a space is clicked;
+function setBoxes(){
+$box1 = $('#box1').children().text();
+$box2 = $('#box2').text();
+$box3 = $('#box3').text();
+$box4 = $('#box4').text();
+$box5 = $('#box5').text();
+$box6 = $('#box6').text();
+$box7 = $('#box7').text();
+$box8 = $('#box8').text();
+$box9 = $('#box9').text();
+
+boardArray = 
+[
+  [$box1, $box2, $box3],
+  [$box4, $box5, $box6],
+  [$box7, $box8, $box9]
+];
+
+winners =
+[
+  [boardArray[0][0], boardArray[0][1], boardArray[0][2]], //1st row
+  [boardArray[1][0], boardArray[1][1], boardArray[1][2]], //2nd row
+  [boardArray[2][0], boardArray[2][1], boardArray[2][2]], //3rd row
+  [boardArray[0][0], boardArray[1][0], boardArray[2][0]], //1st column
+  [boardArray[0][1], boardArray[1][1], boardArray[2][1]], //2nd column
+  [boardArray[0][2], boardArray[1][2], boardArray[2][2]], //3rd column
+  [boardArray[0][0], boardArray[1][1], boardArray[2][2]], //diagonal 1
+  [boardArray[0][2], boardArray[1][1], boardArray[2][0]] //diagonal 2
+
+];
+}
+
+//determines if there is a cats game or 3 in a row
+function isGameOver(event) {
+  setBoxes();
+
+  //cats game
+  let board = [...$('.box').children().text()]     //destructure jQuery object of '.player-symbol' into board array
+  if(board.length === 9) console.log("Cats game"); //if board array is full its a cats game
+  
+  //winner
+  const won = winners.some(arr => {     //if one of the array in 'winners' has same symbols that symbol has won
+    return arr.every(symbol => {
+      return symbol === currentPlayer;
+    })
+  })
+  if(won) console.log(currentPlayer + " won")
+}
+
+let currentPlayer = 'O';
+
+//every time space is clicked this is called
+//depending on current player it sets a new div element of class "player symbol"
+// to the inner html of that box
 function updateBoard(event) {
     if (currentPlayer === "X") {
         const x = document.createElement("div");
         x.innerHTML = "X";
         x.classList.add("player-symbol");
         event.currentTarget.append(x);
+        isGameOver(event);
         currentPlayer = "O";
-        this[this.event.target.id] = this.event.target.innerText;//assign player symbol to variable of name = to id of the target element
-
-
       } else {
         const o = document.createElement("div");
         o.innerHTML = "O";
         o.classList.add("player-symbol");
         event.currentTarget.append(o);
+        isGameOver(event);
         currentPlayer = "X";
-        this[this.event.target.id] = this.event.target.innerText; //assign player symbol to variable of name = to id of the target element
-
       }
 }
 
@@ -33,21 +97,9 @@ function isMoveValid(event) {
   }
 }
 
-// //highlights background if move is invalid, 
-// //but can't get it to work as a function
-// function invalidMove(event) {
-//   console.log('I ran')
-//     $(event.currentTarget).on('click', () => {
-//       $(event.currentTarget).css("background-color", "red")
-//     }).on('mouseup', () => {
-//       $(event.currentTarget).css("background-color", "")
-//     })
-//     console.log('I ran again')
-//   return;
-// }
-
 //if isMoveValid returns false, then change the
 //background color to red while the mouse is clicked
+//and back to original when unclicked
 $(".box").on("mousedown", (event) => {
   if(!isMoveValid(event)){
   $(event.currentTarget).css("background-color", "red");
@@ -55,45 +107,6 @@ $(".box").on("mousedown", (event) => {
 }).on('mouseup', (event) => {
   $(event.currentTarget).css("background-color", "")
 })
-
-//represent positions in an array
-
-//create variable for each box
-let $box1 = $('.box1').text();
-let $box2 = $('.box2').text();
-let $box3 = $('.box3').text();
-let $box4 = $('.box4').text();
-let $box5 = $('.box5').text();
-let $box6 = $('.box6').text();
-let $box7 = $('.box7').text();
-let $box8 = $('.box8').text();
-let $box9 = $('.box9').text();
-
-
-let boardArray = 
-[
-  [$box1, $box2, $box3],
-  [$box4, $box5, $box6],
-  [$box7, $box8, $box9]
-];
-
-let winners =
-[
-  [boardArray[0][0], boardArray[0][1], boardArray[0][2]], //1st row
-  [boardArray[1][0], boardArray[1][1], boardArray[1][2]], //2nd row
-  [boardArray[2][0], boardArray[2][1], boardArray[2][2]], //3rd row
-  [boardArray[0][0], boardArray[1][0], boardArray[2][0]], //1st column
-  [boardArray[0][1], boardArray[1][1], boardArray[2][1]], //2nd column
-  [boardArray[0][2], boardArray[1][2], boardArray[2][2]], //3rd column
-  [boardArray[0][0], boardArray[1][1], boardArray[2][2]], //diagonal 1
-  [boardArray[0][2], boardArray[1][1], boardArray[2][0]] //diagonal 2
-
-];
-
-console.log(winners)
-
-
-let currentPlayer = "O";
 
 /*
 1.check if move is valid
@@ -106,8 +119,8 @@ let currentPlayer = "O";
 */
 $(".box").on("click", (event) => {
   if(!isMoveValid(event)) {
-    //invalidMove(event);
     return;
   }
   updateBoard(event);
 });
+

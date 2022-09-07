@@ -4,7 +4,6 @@
 
 }
 body{
-    background-color: greenyellow;
 }
 
 a{
@@ -27,7 +26,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: goldenrod ;
+    background-color: rgb(220, 206, 172) ;
 }
 nav {
     
@@ -55,7 +54,7 @@ nav ul li {
 
 .menu-item {
     border-bottom: 1px solid transparent;
-    margin:
+    margin: 3px;
 }
 
 .menu-item:hover {
@@ -72,7 +71,7 @@ nav ul li {
   
 }
 
-p.dropdown {
+p.dropdown, .dropdown li {
     font-weight: 400;
     text-transform: capitalize;
     font-size: 0.8rem;
@@ -91,16 +90,16 @@ p.dropdown {
     align-items: center;
 }
 
-#box1, #box2, #box4, #box5 {
+.border-bottom-right {
     border-bottom: 2px solid darkblue;
     border-right: 2px solid darkblue;  
 }
 
-#box3, #box6 {
+.border-bottom {
     border-bottom: 2px solid darkblue;
 }
 
-#box7, #box8 {
+.border-right {
     border-right: 2px solid darkblue;
 }
 
@@ -114,6 +113,32 @@ p.dropdown {
     height: auto;
     text-align: center;
     text-justify: center;
+}
+
+.end-game-container {
+    grid-area: 3 / 2 / span 3 / span 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset {
+    grid-area: 6 / 3 / span 2 / span 3;
+    height: 80px;
+    margin: 15px;
+    background-color: goldenrod;
+    opacity: 0.8;
+}
+
+.reset:hover {
+    box-shadow: 5px 5px 8px black;
+    opacity: 1.0;
+}
+.end-game {
+    font-size: 1.8rem;
+    margin: 15px;
+    text-align: center;
 }
 
 .hide {

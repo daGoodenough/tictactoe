@@ -29,27 +29,33 @@
 
                         <li class="themes menu-item">Themes</li>
                         <ul class="dropdown hide">
-                            <li>Dark</li>
-                            <li>'Murica</li>
-                            <li>neon</li>
+                            <li id = "dark">Dark</li>
+                            <li id = "bitcoin">Bitcoin</li>
+                            <li id = "no-theme">Reset</li>
                         </ul>
                     </div>
                     <li class=""><a href="./about.html" class="about menu-item">About</a></li>
                 </ul>
             </nav>
         </header>
+        <div class="end-game-container">
+            <!-- <div class="end-game">X Won!!</div>
+            <div class="end-game">Please Play Again!!!</div> -->
+        </div>
 
         <div class="gameboard">
-            <div class="box" id="box1"></div>
-            <div class="box" id="box2"></div>
-            <div class="box" id="box3"></div>
-            <div class="box" id="box4"></div>
-            <div class="box" id="box5"></div>
-            <div class="box" id="box6"></div>
-            <div class="box" id="box7"></div>
-            <div class="box" id="box8"></div>
+            <div class="box border-bottom-right" id="box1"></div>
+            <div class="box border-bottom-right" id="box2"></div>
+            <div class="box border-bottom" id="box3"></div>
+            <div class="box border-bottom-right" id="box4"></div>
+            <div class="box border-bottom-right" id="box5"></div>
+            <div class="box border-bottom" id="box6"></div>
+            <div class="box border-right" id="box7"></div>
+            <div class="box border-right" id="box8"></div>
             <div class="box" id="box9"></div>
         </div>
+
+<button class="reset hide">RESET</button>
 
     </div>
 </body>

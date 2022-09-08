@@ -39,7 +39,7 @@ $dark = $('#dark');
 $bitcoin = $('#bitcoin');
 $noTheme = $('#no-theme');
 
-$dark.on('click', changeTheme("darkgrey", "black", "white", "black"));
+// $dark.on('click', changeTheme("darkgrey", "black", "white", "black"));
 
 //$bitcoin.on('click', changeTheme("orange", "black", "white", "white"))
   

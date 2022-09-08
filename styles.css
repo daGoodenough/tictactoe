@@ -105,7 +105,7 @@ nav ul li {
     height: 50vw;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    margin-bottom: 100px
+    /* margin-bottom: 100px */
 }
 
 .box {
@@ -172,6 +172,15 @@ nav ul li {
     font-size: 1.8rem;
     margin: 15px;
     text-align: center;
+}
+
+.current-player-message {
+    grid-area: 3 / 2;
+    height: 10 vh;
+    text-align: center;
+    margin: 20px;
+    font-size: 2.5rem;
+    font-weight: 600;
 }
 
 .hide {

@@ -60,6 +60,7 @@ function isGameOver(event) {
     );
     let endGame2 = $("<div class = 'end-game'></div>").text("Play again?");
     $(".gameboard").hide();
+    $(".current-player-message").hide();
     $(".end-game-container").append(endGame1, endGame2);
     $(".end-game-container").show();
     $(".reset").show();
@@ -75,12 +76,13 @@ function isGameOver(event) {
     $(".gameboard").hide();
     $(".end-game-container").append(endGame1, endGame2);
     $(".end-game-container").show();
+    $(".current-player-message").hide();
+
 
     $(".reset").show();
   } //if board array is full its a cats game
 }
 
-let currentPlayer = "O";
 
 //every time space is clicked this is called
 //depending on current player it sets a new div element of class "player symbol"
@@ -127,6 +129,10 @@ $(".box")
     $(event.currentTarget).css("background-color", "");
   });
 
+  function currentPlayerMessage() {
+    $(".current-player-message").text(`${currentPlayer}'s turn.`)
+  }
+
 /*
 1.check if move is valid
     -if invalid do nothing and exit the function
@@ -137,14 +143,17 @@ $(".box")
     -if not over exit function
 */
 function tictactoe() {
+  
+
   $(".box").on("click", (event) => {
     if (!isMoveValid(event)) {
       return;
     }
     updateBoard(event);
+    currentPlayerMessage();
   });
 }
-
+let currentPlayer = "X";
 tictactoe();
 
 const $reset = $(".reset");
@@ -160,5 +169,7 @@ $reset.on("click", () => {
   $symbolDiv.remove();
   $gameboard.show();
   $endGameContainer.html("");
+  $(".current-player-message").show().text("X goes first.");
+  currentPlayer = "X";
   tictactoe();
 });

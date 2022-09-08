@@ -3,8 +3,6 @@
     padding: 0;
 
 }
-body{
-}
 
 a{
     text-decoration: none;
@@ -13,15 +11,20 @@ a{
 
 a.menu-item:hover {
     color: grey;
+    
     border-bottom: 2px solid grey;
 }
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr) repeat(3, 60px) repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr) repeat(3, 60px) repeat(2, 1fr);
+    height: 100vh;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
+    position: relative;
+    gap: 15px;
 }
 header {
-    grid-column: 1 / span 7;
+    grid-column: 1 / span 3;
+    max-height: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,9 +32,10 @@ header {
     background-color: rgb(220, 206, 172) ;
 }
 nav {
-    
+    display: flex;
     flex-direction: row;
     width: 100%;
+    
 }
 
 nav ul {
@@ -54,7 +58,8 @@ nav ul li {
 
 .menu-item {
     border-bottom: 1px solid transparent;
-    margin: 3px;
+    margin-top: 8px;
+   
 }
 
 .menu-item:hover {
@@ -64,6 +69,7 @@ nav ul li {
 
 .menu-item-container{
     position: relative;
+    
 }
 
 .dropdown {
@@ -77,11 +83,13 @@ p.dropdown, .dropdown li {
     font-size: 0.8rem;
 }
 .gameboard {
-    grid-area: 3 / 3 / span 3 / span 3;
+    grid-area: 2 / 2 / span 1 / span 1;
     display: grid;
+    width: 50vw;
+    height: 50vw;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-
+    margin: 25px;
 }
 
 .box {
@@ -108,7 +116,8 @@ p.dropdown, .dropdown li {
 
 
 .player-symbol {
-    font-size: 2rem;
+    font-size: 10vw;
+    color: black;
     width: 100%;
     height: auto;
     text-align: center;
@@ -116,7 +125,7 @@ p.dropdown, .dropdown li {
 }
 
 .end-game-container {
-    grid-area: 3 / 2 / span 3 / span 5;
+    grid-area: 2 / 2 / span 2 / span 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,11 +133,15 @@ p.dropdown, .dropdown li {
 }
 
 .reset {
-    grid-area: 6 / 3 / span 2 / span 3;
-    height: 80px;
+    grid-area: 4 / 2;
+    width: 35%;
+    height: 70px;
     margin: 15px;
     background-color: goldenrod;
     opacity: 0.8;
+    justify-self: center;
+    /* position: absolute;
+    top: 30%; */
 }
 
 .reset:hover {

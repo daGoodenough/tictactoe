@@ -47,6 +47,24 @@ function setBoxes() {
 function isGameOver(event) {
   setBoxes();
 
+  //winner
+  const won = winners.some((arr) => {
+    //if one of the array in 'winners' has same symbols that symbol has won
+    return arr.every((symbol) => {
+      return symbol === currentPlayer;
+    });
+  });
+  if (won) {
+    let endGame1 = $("<div class = 'end-game'></div>").text(
+      `${currentPlayer} Won!`
+    );
+    let endGame2 = $("<div class = 'end-game'></div>").text("Play again?");
+    $(".gameboard").hide();
+    $(".end-game-container").append(endGame1, endGame2);
+    $(".end-game-container").show();
+    $(".reset").show();
+    return;
+  }
   //cats game
   let board = [...$(".box").children().text()]; //destructure jQuery object of '.player-symbol' into board array
   if (board.length === 9) {
@@ -56,29 +74,10 @@ function isGameOver(event) {
     );
     $(".gameboard").hide();
     $(".end-game-container").append(endGame1, endGame2);
-    $(".end-game-container").show()
+    $(".end-game-container").show();
 
     $(".reset").show();
   } //if board array is full its a cats game
-
-  //winner
-  const won = winners.some((arr) => {
-    //if one of the array in 'winners' has same symbols that symbol has won
-    return arr.every((symbol) => {
-      return symbol === currentPlayer;
-    });
-  });
-  if (won) {
-    let endGame1 = $("<div class = 'end-game'></div>").text(`${currentPlayer} Won!`)
-    let endGame2 = $("<div class = 'end-game'></div>").text(
-      "Play again?"
-      );
-    $(".gameboard").hide();
-    $(".end-game-container").append(endGame1, endGame2);
-    $(".end-game-container").show()
-    $(".reset").show();
-
-  }
 }
 
 let currentPlayer = "O";
@@ -137,28 +136,29 @@ $(".box")
     -if over pop up winning(or draw) message and option to reset
     -if not over exit function
 */
-function tictactoe() {$(".box").on("click", (event) => {
-  if (!isMoveValid(event)) {
-    return;
-  }
-  updateBoard(event);
-});
+function tictactoe() {
+  $(".box").on("click", (event) => {
+    if (!isMoveValid(event)) {
+      return;
+    }
+    updateBoard(event);
+  });
 }
 
 tictactoe();
 
-const $reset = $('.reset')
+const $reset = $(".reset");
 
 //clear game board and start new game when reset button is clicked
-$reset.on('click', () => {
-  const $gameboard = $('.gameboard')
-  const $endGame = $('.end-game-container')
-  const $symbolDiv = $('.player-symbol')
-  const $endGameContainer = $('.end-game-container');
+$reset.on("click", () => {
+  const $gameboard = $(".gameboard");
+  const $endGame = $(".end-game-container");
+  const $symbolDiv = $(".player-symbol");
+  const $endGameContainer = $(".end-game-container");
   $reset.hide();
   $endGame.hide();
   $symbolDiv.remove();
   $gameboard.show();
   $endGameContainer.html("");
   tictactoe();
-})
+});

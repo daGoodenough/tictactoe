@@ -64,8 +64,22 @@ nav ul li {
    
 }
 
-.themes {
-    margin-right: 4vw;
+ol.dropdown {
+    width:175%;
+
+}
+
+ul.dropdown {
+    margin-right: ;
+    width: 100%;
+}
+
+.theme-item {
+    cursor: pointer;
+}
+
+.theme-item:hover {
+    font-weight: bolder;
 }
 
 .menu-item:hover {
@@ -81,7 +95,6 @@ nav ul li {
 
 .dropdown {
   position: absolute;
-  width:175%;
   height: auto;
   border: 2px solid black;
   background-color:rgba(123, 172, 180, 0.8);
@@ -134,7 +147,7 @@ nav ul li {
 .player-symbol {
     font-size: 10vw;
     font-weight: 600;
-    color: black;
+    /* color: black; */
     width: 100%;
     height: auto;
     text-align: center;
@@ -185,4 +198,13 @@ nav ul li {
 
 .hide {
     display: none;
+}
+
+
+/* about page */
+.about-container {
+    width: 70vw;
+    align-items: center;
+    margin: auto;
+    
 }

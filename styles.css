@@ -208,3 +208,31 @@ ul.dropdown {
     margin: auto;
     
 }
+
+.words p, .words h2, .words h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.6rem;
+    text-align: justify;
+
+}
+
+.words h2 {
+    line-height: 3rem;
+    font-size:1.5rem;
+
+}
+.words h4 {
+    font-size: 1.3rem;
+}
+.words p {
+    font-weight: 500;
+    font-size: 1.2rem;
+
+}
+
+.tictactoewiki {
+    text-decoration: underline;
+    color:blue;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}

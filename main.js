@@ -54,9 +54,5 @@ $bitcoin.on('click', function(body, header, text, border, background) {
 $noTheme.on('click', function(body, header, text, border) {
   changeTheme("", "", "", "");
 })
-//$bitcoin.on('click', changeTheme("orange", "black", "white", "white"))
   
-
-
-
 })

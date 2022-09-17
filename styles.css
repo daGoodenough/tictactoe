@@ -2,10 +2,9 @@
     margin: 0;
     padding: 0;
     font-family:'Courier New', Courier, monospace ;
-
 }
 
-a{
+a.menu-item, a.logo{
     text-decoration: none;
     color: black;
 }
@@ -23,6 +22,10 @@ a.menu-item:hover {
     position: relative;
     gap: 15px;
 }
+
+
+/* nav bar */
+
 header {
     grid-column: 1 / span 3;
     max-height: 90px;
@@ -109,16 +112,19 @@ ul.dropdown {
     margin-left: 8px;
     padding: 3px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
+
+
+/* Gameboard and player symbols */
+
 .gameboard {
     grid-area: 2 / 2 / span 1 / span 1;
     display: grid;
-    width: 50vw;
-    height: 50vw;
+    width: 50vh;
+    height: 50vh;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    /* margin-bottom: 100px */
+    justify-self:center;
 }
 
 .box {
@@ -140,19 +146,26 @@ ul.dropdown {
     border-right: 4px solid black;
 }
 
-
-
-
-
 .player-symbol {
-    font-size: 10vw;
+    font-size: 10vh;
     font-weight: 600;
-    /* color: black; */
     width: 100%;
     height: auto;
     text-align: center;
     text-justify: center;
 }
+
+.current-player-message {
+    grid-area: 3 / 2;
+    height: 10 vh;
+    text-align: center;
+    margin: 20px;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+
+/* End of game screen */
 
 .end-game-container {
     grid-area: 2 / 2 / span 1 / span 1;
@@ -173,8 +186,6 @@ ul.dropdown {
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 10px;
-    /* position: absolute;
-    top: 30%; */
 }
 
 .reset:hover {
@@ -187,14 +198,6 @@ ul.dropdown {
     text-align: center;
 }
 
-.current-player-message {
-    grid-area: 3 / 2;
-    height: 10 vh;
-    text-align: center;
-    margin: 20px;
-    font-size: 2.5rem;
-    font-weight: 600;
-}
 
 .hide {
     display: none;
@@ -230,7 +233,7 @@ ul.dropdown {
 
 }
 
-.tictactoewiki {
+a.tictactoewiki, a.parsity {
     text-decoration: underline;
     color:blue;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

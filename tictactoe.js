@@ -31,6 +31,7 @@ function setBoxes() {
     [$box7, $box8, $box9],
   ];
 
+  //all winning combinations
   winners = [
     [boardArray[0][0], boardArray[0][1], boardArray[0][2]], //1st row
     [boardArray[1][0], boardArray[1][1], boardArray[1][2]], //2nd row
@@ -54,6 +55,8 @@ function isGameOver(event) {
       return symbol === currentPlayer;
     });
   });
+
+  //display end game message
   if (won) {
     let endGame1 = $("<div class = 'end-game'></div>").text(
       `${currentPlayer} Won!`
@@ -68,6 +71,8 @@ function isGameOver(event) {
   }
   //cats game
   let board = [...$(".box").children().text()]; //destructure jQuery object of '.player-symbol' into board array
+  
+  //if board array is full its a cats game
   if (board.length === 9) {
     let endGame1 = $("<div class = 'end-game'></div>").text("Cats Game!");
     let endGame2 = $("<div class = 'end-game'></div>").text(
@@ -80,7 +85,7 @@ function isGameOver(event) {
 
 
     $(".reset").show();
-  } //if board array is full its a cats game
+  }
 }
 
 
@@ -144,15 +149,17 @@ $(".box")
 */
 function tictactoe() {
   
-
   $(".box").on("click", (event) => {
     if (!isMoveValid(event)) {
       return;
     }
+
     updateBoard(event);
     currentPlayerMessage();
   });
 }
+
+//start game
 let currentPlayer = "X";
 tictactoe();
 

@@ -1,17 +1,19 @@
 $('document').ready(() => {
+
+// drop down jQuery
   const $dropdown = $('.dropdown')
   const $menuItem = $('.menu-item');
   const $menuItemContainer = $('.menu-item-container')
  
-$menuItem.on('mouseenter', event => {
+$menuItem.on('mouseenter', event => {     //show dropdown menu when hovering over nav item
     $(event.currentTarget).next().show();
 })
-$menuItemContainer.on('mouseleave', () => {
+$menuItemContainer.on('mouseleave', () => { //hid dropdown when mouse leaves container
     $dropdown.hide();
 })
 
 
-//themese
+//Change themes
 function changeTheme(body, header, text, border, backgroundImage = 'none') {
  const $body = $('body');
  const $header = $('header');
